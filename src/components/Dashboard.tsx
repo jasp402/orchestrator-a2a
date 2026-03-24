@@ -6,21 +6,24 @@ const Dashboard: React.FC = () => {
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           <div className="lg:col-span-1">
-            <h2 className="font-headline text-4xl font-bold mb-6">Operational Control</h2>
-            <p className="text-on-surface-variant mb-8">Maintain total visibility over the A2A stream. Monitor throughput, latency, and agent health in real-time through the synthetic command center.</p>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-                <span className="text-sm font-label uppercase tracking-widest">Latency-Optimized Routing</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-                <span className="text-sm font-label uppercase tracking-widest">Cross-Model Context Bridging</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-                <span className="text-sm font-label uppercase tracking-widest">Automated Conflict Resolution</span>
-              </li>
+            <h2 className="font-headline text-4xl font-bold mb-6">Centro de mando operativo</h2>
+            <p className="text-on-surface-variant mb-8 leading-relaxed">Piensa en AITENETIA como un centro de mando para desarrollo asistido por IA. Tú defines el objetivo, el sistema analiza el proyecto, asigna especialistas, coordina revisiones y ejecuta el runtime hasta tener una entrega visible.</p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2">
+              {[
+                "Orquestación de especialistas",
+                "Colaboración A2A",
+                "Rotación multimodelo",
+                "Runtime con Docker",
+                "Preview verificable",
+                "Trazabilidad por proyecto",
+                "Decision inbox humano",
+                "Planeación de tareas"
+              ].map((feature, idx) => (
+                <li key={idx} className="flex items-start gap-2">
+                  <span className="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                  <span className="text-xs font-label uppercase tracking-wide text-on-surface leading-tight">{feature}</span>
+                </li>
+              ))}
             </ul>
           </div>
 

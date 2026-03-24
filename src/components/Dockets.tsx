@@ -5,10 +5,10 @@ const Dockets: React.FC = () => {
     <section className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-8">
         <div className="max-w-3xl mb-20">
-          <h3 className="font-label text-primary tracking-[0.3em] uppercase mb-4 text-sm font-bold">Protocol Architecture</h3>
-          <h2 className="font-headline text-4xl md:text-6xl font-bold mb-8">Synchronized Dockets</h2>
+          <h3 className="font-label text-primary tracking-[0.3em] uppercase mb-4 text-sm font-bold">Trazabilidad Total</h3>
+          <h2 className="font-headline text-4xl md:text-6xl font-bold mb-8">Flujo Operativo Documentado</h2>
           <p className="text-on-surface-variant text-lg">
-            Every operation is encapsulated in a 'Docket'—a high-integrity state container that tracks planning, execution, and validation cycles across the agent swarm.
+            Cada operación se encapsula materialmente en un Docket. Los agentes distribuyen su trabajo, resuelven problemas transversalmente y el sistema mantiene la trazabilidad absoluta de cada evento, revisión y entrega.
           </p>
         </div>
 

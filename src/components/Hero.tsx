@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Hero: React.FC = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <header className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 hero-gradient">
       {/* Background Graphic Elements */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-20"
+          className="absolute top-1/2 left-1/2 w-[120%] h-[120%] opacity-20"
           style={{
-            backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKkKkNxQSBMHmbyVujwkuBsTq9s3LfLlt1delrZi9fOPejuT59JQOZsrIym5FNSjTCB4oxstt1Zubo95YmZd6WJDK4IJdx_yfdorq-p2EpxC8YTZaAk90agMmMqhTGBwk2t2UypNiXVzPMbPXMZPTUE8BEyU1yWd5fY8NrrYAEOImAhqgqyzzb76Ss0sULh49rVbmS38zfMCNJZQrcYFsOa0vIQuIL5UrgokY1eSRe2EIY5ELGRUUZgPSRyBwsgGX6Jh6V6Bu6')",
+            backgroundImage: "url('/feature_bg.jpg')",
             backgroundSize: "cover",
-            mixBlendMode: "screen"
+            mixBlendMode: "screen",
+            transform: `translate(-50%, -50%)`
           }}
         ></div>
       </div>
 
-      <div className="container mx-auto px-8 relative z-10 text-center">
+      <div 
+        className="container mx-auto px-8 relative z-10 text-center"
+        style={{
+          transform: `translateY(${scrollY * 0.5}px)`,
+          opacity: Math.max(0, 1 - scrollY / 500)
+        }}
+      >
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 mb-8">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
           <span className="font-label text-[0.6875rem] uppercase tracking-[0.2em] text-primary">System Status: Operational</span>
@@ -30,7 +50,7 @@ const Hero: React.FC = () => {
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-          <button className="w-full md:w-auto px-10 py-4 bg-primary text-on-primary font-headline font-bold uppercase tracking-widest neon-glow-border transition-all hover:brightness-110">
+          <button onClick={() => window.location.href='/login'} className="w-full md:w-auto px-10 py-4 bg-primary text-on-primary font-headline font-bold uppercase tracking-widest neon-glow-border transition-all hover:brightness-110">
             Initialize Project
           </button>
           <button className="w-full md:w-auto px-10 py-4 border border-outline/30 text-on-surface font-headline font-bold uppercase tracking-widest hover:bg-surface-container-high transition-all">
